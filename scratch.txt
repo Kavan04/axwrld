@@ -1,0 +1,53 @@
+{
+    "age": "19",
+    "weight": "120",
+    "height": "162",
+    "gender": "male",
+    "countries": "[]"
+}
+{
+    "age": "25",
+    "weight": "140",
+    "height": "170",
+    "gender": "female",
+    "countries": "[]"
+}
+
+{
+    "age": "32",
+    "weight": "200",
+    "height": "175",
+    "gender": "male",
+    "countries": "[]"
+}
+
+{
+    "age": "28",
+    "weight": "160",
+    "height": "165",
+    "gender": "female",
+    "countries": "[]"
+}
+
+{
+    "age": "45",
+    "weight": "190",
+    "height": "180",
+    "gender": "female",
+    "countries": "[]"
+}
+
+{
+    "age": "36",
+    "weight": "175",
+    "height": "177",
+    "gender": "male",
+    "countries": "[]"
+}
+{
+    "age": "22",
+    "weight": "130",
+    "height": "172",
+    "gender": "female",
+    "countries": "[]"
+}
