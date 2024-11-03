@@ -1,35 +1,84 @@
-# Axwrld Wiki
-
 ## Problem Statement
 
-In an increasingly globalized world, traditional recipes and cultural culinary practices are disappearing. Generational gaps, migration, and the convenience of fast food are causing people to lose touch with authentic, homestyle flavors and the knowledge passed down through families. Many lack access to the ingredients, time, or guidance needed to recreate these treasured dishes.
+In an increasingly globalized society, traditional recipes and cultural culinary practices are fading away. Generational gaps, migration, and the convenience of fast food contribute to a disconnect from authentic, home-cooked flavors and the culinary knowledge passed down through generations. Many individuals lack access to the necessary ingredients, time, or guidance to recreate these cherished dishes.
 
 ## Our Solution
 
-axwrld bridges this gap by creating a digital culinary map where users can explore authentic dishes from around the world, along with their cultural backgrounds. It also includes an **AI Chef** that customizes recipes to fit individual dietary needs, empowering users to recreate these traditional recipes with ease.
+Axwrld addresses this issue by providing a digital culinary map where users can discover authentic dishes from around the globe, accompanied by their cultural histories. Our platform features an **AI Chef** that customizes recipes to meet individual dietary requirements, empowering users to recreate these traditional dishes effortlessly.
 
-## What makes it Axwrld Different?
+## What Sets Axwrld Apart?
 
-Unlike standard recipe apps, axwrld emphasizes authenticity and cultural context. Each recipe includes insights into the dish’s origins and cultural significance, allowing users to experience the world’s flavors in a way that feels personal and meaningful. The **AI Chef** adds value by tailoring recipes for health-conscious individuals while preserving the dish’s essence.
+Unlike typical recipe applications, Axwrld prioritizes authenticity and cultural context. Each recipe not only provides insights into its origins but also explores its cultural significance, allowing users to engage with global flavors in a personal and meaningful way. The **AI Chef** enhances this experience by tailoring recipes for health-conscious users while maintaining the integrity of the original dish.
 
-## How We Made It Possible (Technical Overview)
+## How We Made It Happen (Technical Overview)
 
 ### Global Recipe Map
-The **Global Recipe Map** serves as the backbone of axwrld, enabling users to explore recipes by region, culture, and cuisine. Each recipe is geotagged, allowing users to easily discover dishes based on specific geographic locations. Here’s how it works:
-- **Geolocation & Tagging**: Recipes are tagged with geographic metadata that links them to specific locations around the world. Users can also contribute by tagging and uploading their own family recipes, creating a community-driven map that grows over time.
-- **Crowdsourced Data**: Users are encouraged to submit and fill in recipes, contributing both ingredients and cooking instructions. Each submission is reviewed for authenticity to maintain the platform's emphasis on cultural accuracy.
-- **Map Navigation**: The recipe map uses an interactive, zoomable interface, allowing users to search by region, country, or cuisine type. Filtering options make it easy to find recipes based on dietary needs, ingredient availability, and cooking style.
+The **Global Recipe Map** forms the foundation of Axwrld, allowing users to explore recipes by region, culture, and cuisine. Each recipe is geotagged, enabling easy discovery based on geographic locations. Here’s how it works:
+- **Geolocation & Tagging**: Recipes are associated with geographic metadata that links them to specific locations worldwide. Users can also contribute by tagging and uploading their own family recipes, creating a community-driven map that evolves over time.
+- **Crowdsourced Data**: Users are encouraged to submit recipes, contributing ingredients and cooking instructions. Each submission undergoes a review process to ensure authenticity, maintaining the platform's focus on cultural accuracy.
+- **Map Navigation**: The interactive recipe map features a zoomable interface, allowing users to search by region, country, or cuisine type. Filtering options make it simple to find recipes based on dietary needs, ingredient availability, and cooking style.
 
 ### AI Chef
-The **AI Chef** is an intelligent recipe assistant that personalizes recipes based on users' dietary preferences, ingredient availability, and nutritional needs. Built using machine learning and natural language processing, it enhances the culinary experience by ensuring users can make informed, healthy, and culturally authentic choices.
-- **Natural Language Processing (NLP)**: NLP allows the AI Chef to interpret user input, such as dietary restrictions (e.g., vegan, gluten-free), available ingredients, or taste preferences. The NLP engine parses this information to suggest suitable recipes or adapt existing ones.
-- **Machine Learning Customization**: The AI Chef employs machine learning algorithms to make personalized recommendations, drawing on data from previous user interactions and preferences. Over time, it learns user preferences, improving its suggestions and enhancing user satisfaction.
-- **Nutritional Guidance**: Using a built-in nutritional database, the AI Chef analyzes recipes and provides nutritional insights, including calorie counts and macronutrient information. Users receive dietary suggestions tailored to their goals, such as balanced meals or high-protein options.
+The **AI Chef** serves as a smart recipe assistant that personalizes suggestions based on users' dietary preferences, available ingredients, and nutritional needs. Utilizing machine learning and natural language processing, the AI Chef enhances the culinary experience by empowering users to make informed, healthy, and culturally authentic choices. Specifically, the AI Chef is powered by Ollama's Llama3 model, which processes a JSON file containing relevant recipe data to help the AI learn about various cooking styles and methods from different cultures.
+- **Natural Language Processing (NLP)**: The AI Chef uses NLP to interpret user inputs, such as dietary restrictions (e.g., vegan, gluten-free), available ingredients, or taste preferences. The NLP engine processes this information to recommend suitable recipes or adapt existing ones.
+- **Machine Learning Customization**: Through machine learning algorithms, the AI Chef provides personalized recommendations, leveraging data from previous user interactions and preferences. It learns over time, improving suggestions and enhancing user satisfaction.
+- **Nutritional Guidance**: The AI Chef analyzes recipes using a built-in nutritional database, offering insights such as calorie counts and macronutrient information. Users receive dietary suggestions tailored to their goals, like balanced meals or high-protein options.
 
 ### Cultural Insights Module
-The **Cultural Insights Module** enriches the user experience by providing historical and cultural context for each recipe. This module emphasizes the importance of culinary heritage and educates users on the cultural significance behind traditional dishes.
-- **Curated Cultural Content**: Each recipe includes an overview of its cultural background, explaining its origins, historical context, and significance within its originating culture. This information is sourced from both research and user submissions.
-- **Storytelling Integration**: Users can read stories, anecdotes, or family histories associated with specific recipes, fostering a deeper understanding and appreciation of the dish. This narrative element enhances engagement and connection.
-- **Dynamic Content Updates**: The Cultural Insights Module is continually updated with user-submitted stories and facts, creating a living archive of culinary traditions. Moderation ensures content quality, accuracy, and authenticity.
+The **Cultural Insights Module** enhances the user experience by providing historical and cultural context for each recipe. This module underscores the importance of culinary heritage and educates users on the cultural significance of traditional dishes.
+- **Curated Cultural Content**: Each recipe includes an overview of its cultural background, detailing its origins, historical context, and significance within its originating culture. This information is gathered from both research and user contributions.
+- **Storytelling Integration**: Users can access stories, anecdotes, or family histories associated with specific recipes, fostering a deeper understanding and appreciation of the dish. This narrative aspect enhances engagement and connection.
+- **Dynamic Content Updates**: The Cultural Insights Module is regularly updated with user-submitted stories and facts, creating a living archive of culinary traditions. Moderation ensures the quality, accuracy, and authenticity of the content.
 
-Together, these components create an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. Through its blend of AI, interactive maps, and cultural storytelling, axwrld makes global recipes accessible, relevant, and deeply personal.
+Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, and profoundly personal.
+
+
+### Tech Stack
+
+1. **Backend**:
+   - Node.js
+   - Express
+   - Mongoose
+
+2. **Databases**:
+   - MongoDB
+   - JSON Files (for static data storage, e.g., `nutrients.json` and `recipe.json`)
+
+3. **Frontend**:
+   - React
+   - React-Leaflet
+   - Leaflet
+   - react-leaflet-cluster
+
+4. **Styling**:
+   - CSS
+   - Leaflet CSS
+
+5. **Configuration**:
+   - Environment Variables (e.g., `config.js` for `PORT` and `mongoDBURL`)
+
+6. **Custom Icons**:
+   - Leaflet Icon
+   - Leaflet DivIcon
+
+
+```bash
+# Pull the Llama3 model
+Ollama pull llama3
+
+# List available models
+Ollama list
+
+# Serve the model
+Ollama serve
+
+# Run the Llama3 model
+Ollama run llama3
+
+# Activate the virtual environment
+source venv/bin/activate  # Adjust based on your OS and setup
+
+# Run the main Python application
+python3 main.py
+
+Test the api calls in postman using POST requests from Scratch.txt
