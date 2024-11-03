@@ -52,3 +52,5 @@ source venv/bin/activate  # Adjust based on your OS and setup
 
 # Run the main Python application
 python3 main.py
+
+Test the api calls in postman using POST requests from Scratch.txt
