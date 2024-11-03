@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('./traditional.webp'); /* Path to your image */
+    background-size: 100vw; /* Responsive scaling with viewport width */
+    background-position: 61.5% 45%; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    transition: background-size 0.3s ease; /* Smooth zoom transition */
+}
+
+
+#root {
+    height: 100vh;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    color: #ffffff; /* White text color */
+}
+
+.arcade-screen {
+    background: rgba(113, 6, 6, 0.8); /* Darker background to simulate arcade screen */
+    border: 5px solid #1d5a74; /* Neon border */
+    border-radius: 20px; /* Round corners */
+    box-shadow: 0 0 30px rgba(3, 26, 39, 0.8); /* Glow effect */
+    overflow: hidden; /* Hide overflow for better visuals */
+    position: fixed; /* Fixed positioning to keep it in one place */
+    top: 30%; /* Center vertically */
+    left: 52%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half its width and height to center it */
+    width: 40%; /* Adjust width for arcade effect */
+    height: 43.5%; /* Adjust height for arcade effect */
+}
+
+
+.leaflet-container {
+    height: 100%; /* Fill the arcade screen */
+    width: 100%; /* Fill the arcade screen */
+    border-radius: 15px; /* Slightly round corners of the map */
+}
+
+.cluster-icon {
+    background-color: #ff7b00df; /* Neon pink for cluster icons */
+    height: 2em;
+    width: 2em;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Glow effect */
+}
+
+/* Add some animation for the cluster icons */
+.cluster-icon:hover {
+    animation: pulse 0.5s infinite; /* Pulsing effect on hover */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

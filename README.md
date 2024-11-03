@@ -1,86 +1,70 @@
-# Axwrld Wiki
+# Getting Started with Create React App
 
-## Problem Statement
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-In an increasingly globalized society, traditional recipes and cultural culinary practices are fading away. Generational gaps, migration, and the convenience of fast food contribute to a disconnect from authentic, home-cooked flavors and the culinary knowledge passed down through generations. Many individuals lack access to the necessary ingredients, time, or guidance to recreate these cherished dishes.
+## Available Scripts
 
-## Our Solution
+In the project directory, you can run:
 
-Axwrld addresses this issue by providing a digital culinary map where users can discover authentic dishes from around the globe, accompanied by their cultural histories. Our platform features an **AI Chef** that customizes recipes to meet individual dietary requirements, empowering users to recreate these traditional dishes effortlessly.
+### `npm start`
 
-## What Sets Axwrld Apart?
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Unlike typical recipe applications, Axwrld prioritizes authenticity and cultural context. Each recipe not only provides insights into its origins but also explores its cultural significance, allowing users to engage with global flavors in a personal and meaningful way. The **AI Chef** enhances this experience by tailoring recipes for health-conscious users while maintaining the integrity of the original dish.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## How We Made It Happen (Technical Overview)
+### `npm test`
 
-### Global Recipe Map
-The **Global Recipe Map** forms the foundation of Axwrld, allowing users to explore recipes by region, culture, and cuisine. Each recipe is geotagged, enabling easy discovery based on geographic locations. Here’s how it works:
-- **Geolocation & Tagging**: Recipes are associated with geographic metadata that links them to specific locations worldwide. Users can also contribute by tagging and uploading their own family recipes, creating a community-driven map that evolves over time.
-- **Crowdsourced Data**: Users are encouraged to submit recipes, contributing ingredients and cooking instructions. Each submission undergoes a review process to ensure authenticity, maintaining the platform's focus on cultural accuracy.
-- **Map Navigation**: The interactive recipe map features a zoomable interface, allowing users to search by region, country, or cuisine type. Filtering options make it simple to find recipes based on dietary needs, ingredient availability, and cooking style.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### AI Chef
-The **AI Chef** serves as a smart recipe assistant that personalizes suggestions based on users' dietary preferences, available ingredients, and nutritional needs. Utilizing machine learning and natural language processing, the AI Chef enhances the culinary experience by empowering users to make informed, healthy, and culturally authentic choices. Specifically, the AI Chef is powered by Ollama's Llama3 model, which processes a JSON file containing relevant recipe data to help the AI learn about various cooking styles and methods from different cultures.
-- **Natural Language Processing (NLP)**: The AI Chef uses NLP to interpret user inputs, such as dietary restrictions (e.g., vegan, gluten-free), available ingredients, or taste preferences. The NLP engine processes this information to recommend suitable recipes or adapt existing ones.
-- **Machine Learning Customization**: Through machine learning algorithms, the AI Chef provides personalized recommendations, leveraging data from previous user interactions and preferences. It learns over time, improving suggestions and enhancing user satisfaction.
-- **Nutritional Guidance**: The AI Chef analyzes recipes using a built-in nutritional database, offering insights such as calorie counts and macronutrient information. Users receive dietary suggestions tailored to their goals, like balanced meals or high-protein options.
+### `npm run build`
 
-### Cultural Insights Module
-The **Cultural Insights Module** enhances the user experience by providing historical and cultural context for each recipe. This module underscores the importance of culinary heritage and educates users on the cultural significance of traditional dishes.
-- **Curated Cultural Content**: Each recipe includes an overview of its cultural background, detailing its origins, historical context, and significance within its originating culture. This information is gathered from both research and user contributions.
-- **Storytelling Integration**: Users can access stories, anecdotes, or family histories associated with specific recipes, fostering a deeper understanding and appreciation of the dish. This narrative aspect enhances engagement and connection.
-- **Dynamic Content Updates**: The Cultural Insights Module is regularly updated with user-submitted stories and facts, creating a living archive of culinary traditions. Moderation ensures the quality, accuracy, and authenticity of the content.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, and profoundly personal.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Tech Stack
+### `npm run eject`
 
-1. **Backend**:
-   - Node.js
-   - Express
-   - Mongoose
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-2. **Databases**:
-   - MongoDB
-   - JSON Files (for static data storage, e.g., `nutrients.json` and `recipe.json`)
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-3. **Frontend**:
-   - React
-   - React-Leaflet
-   - Leaflet
-   - react-leaflet-cluster
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-4. **Styling**:
-   - CSS
-   - Leaflet CSS
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-5. **Configuration**:
-   - Environment Variables (e.g., `config.js` for `PORT` and `mongoDBURL`)
+## Learn More
 
-6. **Custom Icons**:
-   - Leaflet Icon
-   - Leaflet DivIcon
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```bash
-# Pull the Llama3 model
-Ollama pull llama3
+### Code Splitting
 
-# List available models
-Ollama list
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-# Serve the model
-Ollama serve
+### Analyzing the Bundle Size
 
-# Run the Llama3 model
-Ollama run llama3
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-# Activate the virtual environment
-source venv/bin/activate  # Adjust based on your OS and setup
+### Making a Progressive Web App
 
-# Run the main Python application
-python3 main.py
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Test the api calls in postman using POST requests from Scratch.txt
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
