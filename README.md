@@ -33,3 +33,22 @@ The **Cultural Insights Module** enhances the user experience by providing histo
 - **Dynamic Content Updates**: The Cultural Insights Module is regularly updated with user-submitted stories and facts, creating a living archive of culinary traditions. Moderation ensures the quality, accuracy, and authenticity of the content.
 
 Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, and profoundly personal.
+
+```bash
+# Pull the Llama3 model
+Ollama pull llama3
+
+# List available models
+Ollama list
+
+# Serve the model
+Ollama serve
+
+# Run the Llama3 model
+Ollama run llama3
+
+# Activate the virtual environment
+source venv/bin/activate  # Adjust based on your OS and setup
+
+# Run the main Python application
+python3 main.py
