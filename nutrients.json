@@ -1,0 +1,252 @@
+{
+    "basmati_rice": {
+      "calories": 350,
+      "serving_size": "100g",
+      "protein": 6.7,
+      "fat": 0.9,
+      "carbohydrates": 77.7,
+      "fiber": 0.4,
+      "sugar": 0.1,
+      "countries": ["India", "Pakistan", "Nepal"]
+    },
+    "chicken": {
+      "calories": 165,
+      "serving_size": "100g",
+      "protein": 31.0,
+      "fat": 3.6,
+      "carbohydrates": 0.0,
+      "fiber": 0.0,
+      "sugar": 0.0,
+      "countries": ["United States", "Brazil", "China"]
+    },
+    "yogurt": {
+      "calories": 59,
+      "serving_size": "100g",
+      "protein": 3.5,
+      "fat": 3.3,
+      "carbohydrates": 4.7,
+      "fiber": 0.0,
+      "sugar": 4.7,
+      "countries": ["India", "Turkey", "Germany"]
+    },
+    "onions": {
+      "calories": 40,
+      "serving_size": "100g",
+      "protein": 1.1,
+      "fat": 0.1,
+      "carbohydrates": 9.3,
+      "fiber": 1.7,
+      "sugar": 4.2,
+      "countries": ["China", "India", "United States"]
+    },
+    "garlic": {
+      "calories": 149,
+      "serving_size": "100g",
+      "protein": 6.4,
+      "fat": 0.5,
+      "carbohydrates": 33.1,
+      "fiber": 2.1,
+      "sugar": 1.0,
+      "countries": ["China", "India", "South Korea"]
+    },
+    "ginger": {
+      "calories": 80,
+      "serving_size": "100g",
+      "protein": 1.8,
+      "fat": 0.8,
+      "carbohydrates": 17.8,
+      "fiber": 2.0,
+      "sugar": 1.7,
+      "countries": ["India", "China", "Nigeria"]
+    },
+    "saffron": {
+      "calories": 310,
+      "serving_size": "100g",
+      "protein": 11.4,
+      "fat": 5.9,
+      "carbohydrates": 65.4,
+      "fiber": 3.9,
+      "sugar": 0.0,
+      "countries": ["Iran", "India", "Spain"]
+    },
+    "rice": {
+      "calories": 330,
+      "serving_size": "100g",
+      "protein": 6.8,
+      "fat": 0.6,
+      "carbohydrates": 77.0,
+      "fiber": 0.6,
+      "sugar": 0.1,
+      "countries": ["China", "India", "Indonesia"]
+    },
+    "potatoes": {
+      "calories": 77,
+      "serving_size": "100g",
+      "protein": 2.0,
+      "fat": 0.1,
+      "carbohydrates": 17.0,
+      "fiber": 2.2,
+      "sugar": 0.8,
+      "countries": ["China", "India", "Russia"]
+    },
+    "butter": {
+      "calories": 717,
+      "serving_size": "100g",
+      "protein": 0.9,
+      "fat": 81.1,
+      "carbohydrates": 0.1,
+      "fiber": 0.0,
+      "sugar": 0.1,
+      "countries": ["India", "United States", "Germany"]
+    },
+    "tomatoes": {
+      "calories": 18,
+      "serving_size": "100g",
+      "protein": 0.9,
+      "fat": 0.2,
+      "carbohydrates": 3.9,
+      "fiber": 1.2,
+      "sugar": 2.6,
+      "countries": ["China", "India", "Turkey"]
+    },
+    "cream": {
+      "calories": 345,
+      "serving_size": "100g",
+      "protein": 2.1,
+      "fat": 37.0,
+      "carbohydrates": 2.8,
+      "fiber": 0.0,
+      "sugar": 2.8,
+      "countries": ["Germany", "France", "United States"]
+    },
+    "paneer": {
+      "calories": 265,
+      "serving_size": "100g",
+      "protein": 18.3,
+      "fat": 20.8,
+      "carbohydrates": 1.2,
+      "fiber": 0.0,
+      "sugar": 1.2,
+      "countries": ["India", "Nepal", "Bangladesh"]
+    },
+    "bell_peppers": {
+      "calories": 31,
+      "serving_size": "100g",
+      "protein": 1.0,
+      "fat": 0.3,
+      "carbohydrates": 6.0,
+      "fiber": 2.1,
+      "sugar": 4.2,
+      "countries": ["China", "Mexico", "Indonesia"]
+    },
+    "chickpeas": {
+      "calories": 364,
+      "serving_size": "100g",
+      "protein": 15.0,
+      "fat": 6.0,
+      "carbohydrates": 61.0,
+      "fiber": 17.0,
+      "sugar": 11.0,
+      "countries": ["India", "Turkey", "Pakistan"]
+    },
+    "flour": {
+      "calories": 364,
+      "serving_size": "100g",
+      "protein": 10.3,
+      "fat": 1.0,
+      "carbohydrates": 76.3,
+      "fiber": 2.7,
+      "sugar": 0.3,
+      "countries": ["Turkey", "Russia", "United States"]
+    },
+    "egusi_seeds": {
+      "calories": 576,
+      "serving_size": "100g",
+      "protein": 28.3,
+      "fat": 49.0,
+      "carbohydrates": 8.9,
+      "fiber": 2.7,
+      "sugar": 1.0,
+      "countries": ["Nigeria", "Ghana", "Cameroon"]
+    },
+    "spinach": {
+      "calories": 23,
+      "serving_size": "100g",
+      "protein": 2.9,
+      "fat": 0.4,
+      "carbohydrates": 3.6,
+      "fiber": 2.2,
+      "sugar": 0.4,
+      "countries": ["China", "United States", "Turkey"]
+    },
+    "palm_oil": {
+      "calories": 884,
+      "serving_size": "100g",
+      "protein": 0.0,
+      "fat": 100.0,
+      "carbohydrates": 0.0,
+      "fiber": 0.0,
+      "sugar": 0.0,
+      "countries": ["Indonesia", "Malaysia", "Thailand"]
+    },
+    "yam": {
+      "calories": 118,
+      "serving_size": "100g",
+      "protein": 1.5,
+      "fat": 0.2,
+      "carbohydrates": 27.9,
+      "fiber": 4.1,
+      "sugar": 0.5,
+      "countries": ["Nigeria", "Ghana", "Ivory Coast"]
+    },
+    "lentils": {
+      "calories": 352,
+      "serving_size": "100g",
+      "protein": 25.0,
+      "fat": 1.1,
+      "carbohydrates": 63.0,
+      "fiber": 30.5,
+      "sugar": 2.0,
+      "countries": ["Canada", "India", "Turkey"]
+    },
+    "noodles": {
+      "calories": 138,
+      "serving_size": "100g",
+      "protein": 4.5,
+      "fat": 0.9,
+      "carbohydrates": 25.0,
+      "fiber": 1.2,
+      "sugar": 0.5,
+      "countries": ["China", "Indonesia", "Japan"]
+    },
+    "rice_flour": {
+      "calories": 366,
+      "serving_size": "100g",
+      "protein": 6.0,
+      "fat": 1.4,
+      "carbohydrates": 80.0,
+      "fiber": 2.4,
+      "sugar": 0.1,
+      "countries": ["Thailand", "Vietnam", "India"]
+    },
+    "ghee": {
+      "calories": 900,
+      "serving_size": "100g",
+      "protein": 0.0,
+      "fat": 100.0,
+      "carbohydrates": 0.0,
+      "fiber": 0.0,
+      "sugar": 0.0,
+      "countries": ["India", "Pakistan", "Nepal"]
+    },
+    "mustard_greens": {
+      "calories": 27,
+      "serving_size": "100g",
+      "protein": 2.9,
+      "fat": 0.4,
+      "carbohydrates": 4.7,
+      "fiber": 3.2,
+      "sugar": 1.3,
+      "countries": ["India", "China", "Nepal"]
+    }
+  }

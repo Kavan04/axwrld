@@ -1,0 +1,110 @@
+{
+    "dishes": [
+      {
+        "Name": "Biryani",
+        "Cook_time": "1 hour 30 minutes",
+        "Ingredients": ["Basmati rice", "Chicken", "Yogurt", "Onions", "Garlic", "Ginger", "Spices", "Saffron"],
+        "Recipe": "Marinate chicken in a blend of yogurt, garlic, ginger, and a mix of spices, then partially cook it. Parboil the basmati rice with whole spices like cardamom, cloves, and cinnamon. In a pot, layer the chicken and rice, and top with saffron-infused water. Cook over low heat until all flavors meld together. Serve hot, garnished with fried onions and fresh herbs.",
+        "Country": "India"
+      },
+      {
+        "Name": "Masala Dosa",
+        "Cook_time": "8 hours (includes soaking and fermenting time)",
+        "Ingredients": ["Rice", "Urad dal", "Potatoes", "Onions", "Spices", "Coconut chutney"],
+        "Recipe": "Soak rice and urad dal (split black lentils), grind into a batter, and let it ferment overnight. Make a thin crepe-like dosa on a hot griddle. Prepare a spiced potato filling by cooking boiled potatoes with onions, mustard seeds, and turmeric. Place the filling inside the dosa, roll, and serve with coconut chutney and sambar.",
+        "Country": "India"
+      },
+      {
+        "Name": "Butter Chicken",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Chicken", "Butter", "Tomatoes", "Cream", "Garam masala", "Ginger", "Garlic"],
+        "Recipe": "Marinate chicken in yogurt and spices, then cook in a creamy tomato sauce with butter, ginger, and garlic. Add garam masala and cream for richness, creating a smooth, mildly spiced sauce. Serve with naan or rice.",
+        "Country": "India"
+      },
+      {
+        "Name": "Paneer Tikka",
+        "Cook_time": "30 minutes",
+        "Ingredients": ["Paneer", "Yogurt", "Spices", "Onions", "Bell peppers"],
+        "Recipe": "Cut paneer into cubes and marinate with spiced yogurt. Skewer with onions and bell peppers, then grill or bake until charred. Serve with green chutney.",
+        "Country": "India"
+      },
+      {
+        "Name": "Chole Bhature",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Chickpeas", "Onions", "Tomatoes", "Spices", "Flour", "Yogurt"],
+        "Recipe": "Cook chickpeas with onions, tomatoes, and spices to make chole. Prepare dough for bhature by mixing flour and yogurt, then roll and deep fry until fluffy. Serve hot with chole.",
+        "Country": "India"
+      },
+      {
+        "Name": "Jollof Rice",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Rice", "Tomatoes", "Bell peppers", "Onions", "Chicken", "Spices"],
+        "Recipe": "Prepare a flavorful tomato and pepper sauce with onions and spices. Add rice and cook until the rice absorbs the sauce. Add chicken or vegetables if desired.",
+        "Country": "Nigeria"
+      },
+      {
+        "Name": "Egusi Soup",
+        "Cook_time": "1 hour 15 minutes",
+        "Ingredients": ["Egusi seeds", "Spinach", "Palm oil", "Fish or meat", "Onions", "Tomatoes", "Spices"],
+        "Recipe": "Roast and grind egusi seeds, then cook them with meat or fish in a sauce made of palm oil, tomatoes, onions, and spices. Add spinach and serve with pounded yam.",
+        "Country": "Nigeria"
+      },
+      {
+        "Name": "Suya",
+        "Cook_time": "30 minutes",
+        "Ingredients": ["Beef or chicken", "Ground peanuts", "Spices", "Onions"],
+        "Recipe": "Thinly slice the meat and season with ground peanuts and spices. Grill until smoky and charred. Serve with sliced onions and tomatoes.",
+        "Country": "Nigeria"
+      },
+      {
+        "Name": "Moi Moi",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Beans", "Onions", "Bell peppers", "Palm oil", "Eggs (optional)"],
+        "Recipe": "Blend soaked beans with onions, bell peppers, and spices. Steam the mixture in small containers until it sets. Serve as a savory side or snack.",
+        "Country": "Nigeria"
+      },
+      {
+        "Name": "Pounded Yam and Egusi",
+        "Cook_time": "1 hour 15 minutes",
+        "Ingredients": ["Yam", "Egusi seeds", "Palm oil", "Spinach", "Meat", "Spices"],
+        "Recipe": "Pound boiled yams until smooth and stretchy. Cook egusi soup with meat and vegetables, serve the yam and soup together.",
+        "Country": "Nigeria"
+      },
+      {
+        "Name": "Momo",
+        "Cook_time": "40 minutes",
+        "Ingredients": ["Flour", "Ground meat or vegetables", "Onions", "Spices"],
+        "Recipe": "Prepare a dough and fill with spiced meat or vegetable filling. Shape into dumplings, steam or fry, and serve with a spicy dipping sauce.",
+        "Country": "Nepal"
+      },
+      {
+        "Name": "Dal Bhat",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Lentils", "Rice", "Spices", "Vegetables"],
+        "Recipe": "Cook lentils with turmeric and spices to make a hearty dal. Serve with steamed rice and a selection of vegetable side dishes.",
+        "Country": "Nepal"
+      },
+      {
+        "Name": "Thukpa",
+        "Cook_time": "45 minutes",
+        "Ingredients": ["Noodles", "Chicken or vegetables", "Broth", "Spices", "Green onions"],
+        "Recipe": "Prepare a spiced broth and cook noodles in it with chicken or vegetables. Garnish with green onions for extra flavor.",
+        "Country": "Nepal"
+      },
+      {
+        "Name": "Sel Roti",
+        "Cook_time": "1 hour",
+        "Ingredients": ["Rice flour", "Sugar", "Ghee", "Milk"],
+        "Recipe": "Mix rice flour, sugar, and milk into a thick batter, then deep fry in ring shapes until golden brown and crispy.",
+        "Country": "Nepal"
+      },
+      {
+        "Name": "Gundruk",
+        "Cook_time": "1 week (fermentation time)",
+        "Ingredients": ["Mustard greens", "Salt"],
+        "Recipe": "Salt mustard greens and let them ferment for a week. Dry them in the sun, then serve as a side dish or seasoning.",
+        "Country": "Nepal"
+      }
+    ]
+  }
+  
