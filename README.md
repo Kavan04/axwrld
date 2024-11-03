@@ -34,6 +34,36 @@ The **Cultural Insights Module** enhances the user experience by providing histo
 
 Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, and profoundly personal.
 
+
+### Tech Stack
+
+1. **Backend**:
+   - Node.js
+   - Express
+   - Mongoose
+
+2. **Databases**:
+   - MongoDB
+   - JSON Files (for static data storage, e.g., `nutrients.json` and `recipe.json`)
+
+3. **Frontend**:
+   - React
+   - React-Leaflet
+   - Leaflet
+   - react-leaflet-cluster
+
+4. **Styling**:
+   - CSS
+   - Leaflet CSS
+
+5. **Configuration**:
+   - Environment Variables (e.g., `config.js` for `PORT` and `mongoDBURL`)
+
+6. **Custom Icons**:
+   - Leaflet Icon
+   - Leaflet DivIcon
+
+
 ```bash
 # Pull the Llama3 model
 Ollama pull llama3
