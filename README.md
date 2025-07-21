@@ -31,7 +31,7 @@ The **Cultural Insights Module** enhances the user experience by providing histo
 - **Storytelling Integration**: Users can access stories, anecdotes, or family histories associated with specific recipes, fostering a deeper understanding and appreciation of the dish. This narrative aspect enhances engagement and connection.
 - **Dynamic Content Updates**: The Cultural Insights Module is regularly updated with user-submitted stories and facts, creating a living archive of culinary traditions. Moderation ensures the quality, accuracy, and authenticity of the content.
 
-Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, and profoundly personal.
+Together, these components offer an immersive, culturally enriched cooking experience that connects users to the world’s culinary heritage. By integrating AI, interactive maps, and cultural storytelling, Axwrld makes global recipes accessible, relevant, engaging, and profoundly personal.
 
 
 ### Tech Stack
