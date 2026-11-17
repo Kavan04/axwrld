@@ -56,7 +56,7 @@ Together, these components offer an immersive, culturally enriched cooking exper
    - Leaflet CSS
 
 5. **Configuration**:
-   - Environment Variables (e.g., `config.js` for `PORT` and `mongoDBURL`)
+   - `config.js` sets `PORT` and reads the MongoDB connection string from the `MONGODB_URL` environment variable (e.g., `export MONGODB_URL="mongodb+srv://<user>:<password>@<cluster>/"`)
 
 6. **Custom Icons**:
    - Leaflet Icon

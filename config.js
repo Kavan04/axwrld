@@ -1,3 +1,7 @@
 export const PORT = 5000;
 
-export const mongoDBURL = 'mongodb+srv://ranabisesh123:bisesh123@recipes-mern.laiks.mongodb.net/?retryWrites=true&w=majority&appName=Recipes-MERN'
+export const mongoDBURL = process.env.MONGODB_URL;
+
+if (!mongoDBURL) {
+  throw new Error('MONGODB_URL is not set. Export your MongoDB connection string as MONGODB_URL before starting the server.');
+}
