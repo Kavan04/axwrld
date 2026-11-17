@@ -36,32 +36,84 @@ Together, these components offer an immersive, culturally enriched cooking exper
 
 ### Tech Stack
 
-1. **Backend**:
-   - Node.js
-   - Express
-   - Mongoose
+1. **Backend** (repository root): Node.js, Express, Mongoose
+2. **Database**: MongoDB. `nutrients.json` and `recipe.json` are static data for the AI Chef.
+3. **Frontend** (`src/`): React, React-Leaflet and Leaflet, built with Vite
+4. **AI Chef** (phase 2): Python, Flask and Ollama (`main.py`)
 
-2. **Databases**:
-   - MongoDB
-   - JSON Files (for static data storage, e.g., `nutrients.json` and `recipe.json`)
+## Running the recipe map (phase 1)
 
-3. **Frontend**:
-   - React
-   - React-Leaflet
-   - Leaflet
-   - react-leaflet-cluster
+The recipe map is three processes: MongoDB, the API server (`index.js`), and the Vite frontend. You need Node.js `^20.19.0` or `>=22.12.0`.
 
-4. **Styling**:
-   - CSS
-   - Leaflet CSS
+```bash
+npm install
+```
 
-5. **Configuration**:
-   - `config.js` sets `PORT` and reads the MongoDB connection string from the `MONGODB_URL` environment variable (e.g., `export MONGODB_URL="mongodb+srv://<user>:<password>@<cluster>/"`)
+### 1. MongoDB
 
-6. **Custom Icons**:
-   - Leaflet Icon
-   - Leaflet DivIcon
+The server reads its connection string only from the `MONGODB_URL` environment variable. It refuses to start without it, and no connection string is stored in the repository. Use one of these:
 
+- **Local development database.** `npm run db:dev` starts a MongoDB server on port 27017 using the `mongod` binary that `mongodb-memory-server` downloads. Data is kept in `.mongo-data/`, so recipes survive restarts. Leave it running and use:
+  ```bash
+  export MONGODB_URL="mongodb://127.0.0.1:27017/axwrld"
+  ```
+- **Your own MongoDB** (a local install, Docker, or MongoDB Atlas):
+  ```bash
+  export MONGODB_URL="mongodb+srv://<user>:<password>@<cluster>/axwrld"
+  ```
+
+### 2. API server
+
+In a terminal where `MONGODB_URL` is set:
+
+```bash
+npm run server
+```
+
+The API listens on **http://localhost:5050**. Port 5000 is avoided because macOS uses it for AirPlay Receiver. Optional settings:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `PORT` | `5050` | Port the API listens on |
+| `CORS_ORIGIN` | `http://localhost:3000,http://127.0.0.1:3000` | Comma-separated browser origins allowed to call the API |
+
+Endpoints:
+
+- `GET /recipes` lists saved recipes (newest first) for the map.
+- `POST /recipes` saves a recipe and returns `201` with it, or `400` with `{ "error": "Invalid fields: …", "fields": { "<field>": "<message>" } }`. Example body:
+  ```json
+  {
+    "name": "Jollof rice",
+    "country": "Nigeria",
+    "prepTimeMinutes": 75,
+    "ingredients": ["rice", "tomato", "scotch bonnet"],
+    "steps": "Blend the peppers, fry the base, then simmer the rice in it.",
+    "location": { "lat": 6.5244, "lng": 3.3792 }
+  }
+  ```
+  `ingredients` must be a list of individual tags. The server trims each tag, drops empty ones, and removes case-insensitive duplicates (the first spelling is kept). These tags are the training input for the phase-2 AI Chef.
+
+### 3. Frontend
+
+```bash
+npm run dev
+```
+
+Open **http://localhost:3000**. The frontend calls the API at `http://localhost:5050` by default. If the API runs elsewhere, set `VITE_API_URL` (for example `VITE_API_URL=http://localhost:6060 npm run dev`) and add the frontend's origin to `CORS_ORIGIN`.
+
+On the page:
+
+- Each saved recipe is a marker. Select it (click, or Tab to it and press Enter) to see its name, country, preparation time and ingredients.
+- To add a recipe, click the map where the dish comes from. With a keyboard, focus the map, pan with the arrow keys, then choose **Add recipe** to use the centre of the map. Add ingredients one at a time with Enter or a comma. The new recipe appears on the map as soon as it is saved.
+
+### Tests and build
+
+```bash
+npm test        # API tests (against an in-memory MongoDB) and frontend tests
+npm run build   # production build of the frontend into build/
+```
+
+## AI Chef (phase 2)
 
 ```bash
 # Pull the Llama3 model
@@ -81,5 +133,6 @@ source venv/bin/activate  # Adjust based on your OS and setup
 
 # Run the main Python application
 python3 main.py
+```
 
 Test the api calls in postman using POST requests from Scratch.txt

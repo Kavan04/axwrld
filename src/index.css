@@ -1,13 +1,324 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-bg: #faf7f2;
+  --color-surface: #ffffff;
+  --color-text: #1f1b16;
+  --color-muted: #574f45;
+  --color-border: #d6cec3;
+  --color-accent: #a33b0b;
+  --color-accent-hover: #842f08;
+  --color-accent-soft: #fbe9dd;
+  --color-error: #b3261e;
+  --color-success: #1d6b3a;
+  --color-focus: #1a56c4;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgb(31 27 22 / 0.12), 0 4px 12px rgb(31 27 22 / 0.06);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Header */
+.site-header {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.site-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+}
+
+.site-header h1 {
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  color: #e8e1d8;
+}
+
+/* Layout */
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.layout:has(.form-panel) {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+}
+
+@media (max-width: 860px) {
+  .layout:has(.form-panel) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.map-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.map-toolbar h2 {
+  font-size: 1.25rem;
+}
+
+.map-help {
+  color: var(--color-muted);
+}
+
+.map-status {
+  min-height: 1.5rem;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.load-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius);
+  background: #fdecea;
+  color: var(--color-error);
+}
+
+/* Map */
+.recipe-map {
+  height: min(70vh, 640px);
+  min-height: 360px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.leaflet-container:focus-visible,
+.leaflet-marker-icon:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.draft-pin {
+  display: grid;
+  place-items: center;
+}
+
+.draft-pin-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px var(--color-accent), 0 2px 6px rgb(0 0 0 / 0.35);
+}
+
+.recipe-popup {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 180px;
+  font-family: inherit;
+}
+
+.recipe-popup h3 {
+  font-size: 1.05rem;
+}
+
+/* Leaflet's own popup styles add a large margin to paragraphs. */
+.recipe-popup p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Buttons */
+.button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.button-secondary {
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+
+.button-secondary:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+}
+
+/* Form */
+.form-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.recipe-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.recipe-form h2 {
+  font-size: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field label,
+.field-label {
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field [aria-invalid="true"] {
+  border: 2px solid var(--color-error);
+}
+
+.field-help {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.field-help:empty {
+  display: none;
+}
+
+.field-error,
+.form-error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+.form-error {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-error);
+  border-radius: 6px;
+  background: #fdecea;
+}
+
+.location-field {
+  justify-items: start;
+}
+
+.tag-entry {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.tag-remove {
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.tag-remove:hover {
+  background: #f3cfb8;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
 }

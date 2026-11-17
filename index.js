@@ -1,26 +1,26 @@
-import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
-import recipeRoute from "./routes/recipeRoute.js";
-//import { Recipe } from "./models/recipeModel.js";
-const cors = express();
-express = require("cors");
-app.use(cors());
-app.use(express.json());
-app.get("/", (req, res) => {
-  console.log(req);
-  return res.status(234).send("Server is up gang");
-});
-app.use("/recipes", recipeRoute);
+import { createApp } from "./server.js";
+import { PORT, corsOrigins, mongoDBURL } from "./config.js";
 
-mongoose
-  .connect(mongoDBURL)
-  .then(() => {
-    console.log("App connected to database");
-    app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+try {
+  await mongoose.connect(mongoDBURL);
+  console.log("Connected to MongoDB");
+} catch (error) {
+  console.error("Could not connect to MongoDB:", error.message);
+  process.exit(1);
+}
+
+const server = createApp({ corsOrigins }).listen(PORT);
+
+server.once("listening", () => {
+  console.log(`axwrld API listening on http://localhost:${PORT}`);
+});
+
+server.on("error", (error) => {
+  console.error(
+    error.code === "EADDRINUSE"
+      ? `Port ${PORT} is already in use. Set PORT to a free port and try again.`
+      : error,
+  );
+  process.exit(1);
+});
