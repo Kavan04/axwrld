@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { MAX_INGREDIENTS, MAX_INGREDIENT_LENGTH } from "../shared/ingredients.js";
+import { COUNTRY_MAX, NAME_MAX, PREP_MAX, PREP_MIN, STEPS_MAX } from "../shared/limits.js";
 
 const locationSchema = new mongoose.Schema(
   {
@@ -11,9 +12,9 @@ const locationSchema = new mongoose.Schema(
 
 const recipeSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, trim: true, maxlength: 120 },
-    country: { type: String, required: true, trim: true, maxlength: 80 },
-    prepTimeMinutes: { type: Number, required: true, min: 1, max: 10080 },
+    name: { type: String, required: true, trim: true, maxlength: NAME_MAX },
+    country: { type: String, required: true, trim: true, maxlength: COUNTRY_MAX },
+    prepTimeMinutes: { type: Number, required: true, min: PREP_MIN, max: PREP_MAX },
     ingredients: {
       type: [{ type: String, trim: true, maxlength: MAX_INGREDIENT_LENGTH }],
       validate: {
@@ -21,7 +22,7 @@ const recipeSchema = new mongoose.Schema(
         message: `A recipe needs between 1 and ${MAX_INGREDIENTS} ingredients.`,
       },
     },
-    steps: { type: String, required: true, trim: true, maxlength: 10000 },
+    steps: { type: String, required: true, trim: true, maxlength: STEPS_MAX },
     location: { type: locationSchema, required: true },
   },
   {

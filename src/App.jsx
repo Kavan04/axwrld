@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { MAP_LIMIT } from "../shared/limits.js";
 import { fetchRecipes, createRecipe } from "./api.js";
 import RecipeForm from "./components/RecipeForm.jsx";
 import RecipeMap, { toLocation } from "./components/RecipeMap.jsx";
 
 function countText(count) {
+  if (count >= MAP_LIMIT) return `Showing only the newest ${MAP_LIMIT} recipes on the map.`;
   return count === 1 ? "1 recipe on the map." : `${count} recipes on the map.`;
 }
 
@@ -44,11 +46,13 @@ export default function App() {
   }
 
   function startFromMapCenter(event) {
-    if (!draft) returnFocusRef.current = event.currentTarget;
+    if (draft) {
+      document.getElementById("recipe-name")?.focus();
+      return;
+    }
+    returnFocusRef.current = event.currentTarget;
     setNotice("");
     moveDraftToMapCenter();
-    // When the form is already open, move focus back into it.
-    document.getElementById("recipe-name")?.focus();
   }
 
   function closeForm() {
@@ -59,7 +63,7 @@ export default function App() {
 
   async function saveRecipe(recipe) {
     const saved = await createRecipe(recipe);
-    setRecipes((current) => [saved, ...current]);
+    setRecipes((current) => [saved, ...current].slice(0, MAP_LIMIT));
     setNotice(`Saved “${saved.name}”. It is now on the map.`);
     closeForm();
   }
@@ -83,7 +87,8 @@ export default function App() {
           </div>
           <p id="map-help" className="map-help">
             Select a marker to see its recipe. To add one, click the map, or pan with the arrow keys and choose
-            “Add recipe” to use the centre of the map.
+            “Add recipe” to use the centre of the map. Once the form is open, drag the pin or choose “Use map
+            centre” to move it.
           </p>
 
           <div className="map-status">

@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { normalizeIngredients } from "../../shared/ingredients.js";
+import { COUNTRY_MAX, NAME_MAX, PREP_MAX, PREP_MIN, STEPS_MAX } from "../../shared/limits.js";
 import { validateRecipe } from "../../shared/validateRecipe.js";
 import { formatLocation } from "../format.js";
 import IngredientTags from "./IngredientTags.jsx";
@@ -130,7 +131,7 @@ export default function RecipeForm({ location, onSubmit, onCancel, onUseMapCente
         onChange={update("name")}
         error={errors.name}
         ref={nameRef}
-        maxLength={120}
+        maxLength={NAME_MAX}
         autoComplete="off"
       />
       <TextField
@@ -139,7 +140,7 @@ export default function RecipeForm({ location, onSubmit, onCancel, onUseMapCente
         value={values.country}
         onChange={update("country")}
         error={errors.country}
-        maxLength={80}
+        maxLength={COUNTRY_MAX}
         autoComplete="country-name"
       />
       <TextField
@@ -147,8 +148,8 @@ export default function RecipeForm({ location, onSubmit, onCancel, onUseMapCente
         label="Preparation time (minutes)"
         type="number"
         inputMode="numeric"
-        min={1}
-        max={10080}
+        min={PREP_MIN}
+        max={PREP_MAX}
         step={1}
         value={values.prepTimeMinutes}
         onChange={update("prepTimeMinutes")}
@@ -171,7 +172,7 @@ export default function RecipeForm({ location, onSubmit, onCancel, onUseMapCente
         value={values.steps}
         onChange={update("steps")}
         error={errors.steps}
-        maxLength={10000}
+        maxLength={STEPS_MAX}
       />
 
       {formError && (

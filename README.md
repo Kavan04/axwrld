@@ -79,7 +79,7 @@ The API listens on **http://localhost:5050**. Port 5000 is avoided because macOS
 
 Endpoints:
 
-- `GET /recipes` lists saved recipes (newest first) for the map.
+- `GET /recipes` lists saved recipes (newest first) for the map. It returns at most the newest 1000 recipes; there is no pagination yet, and the page says so when the cap is reached.
 - `POST /recipes` saves a recipe and returns `201` with it, or `400` with `{ "error": "Invalid fields: …", "fields": { "<field>": "<message>" } }`. Example body:
   ```json
   {
@@ -103,8 +103,8 @@ Open **http://localhost:3000**. The frontend calls the API at `http://localhost:
 
 On the page:
 
-- Each saved recipe is a marker. Select it (click, or Tab to it and press Enter) to see its name, country, preparation time and ingredients.
-- To add a recipe, click the map where the dish comes from. With a keyboard, focus the map, pan with the arrow keys, then choose **Add recipe** to use the centre of the map. Add ingredients one at a time with Enter or a comma. The new recipe appears on the map as soon as it is saved.
+- Each saved recipe is a marker. Select it (click, or Tab to it and press Enter) to see its name, country, preparation time and ingredients. Its steps are in a collapsed **Steps** section; open it to read them.
+- To add a recipe, click the map where the dish comes from. With a keyboard, focus the map, pan with the arrow keys, then choose **Add recipe** to use the centre of the map. While the form is open, **Add recipe** only returns focus to the form; to move the pin, drag it, click the map, or choose **Use map centre**. Add ingredients one at a time with Enter or a comma. The new recipe appears on the map as soon as it is saved.
 
 ### Tests and build
 

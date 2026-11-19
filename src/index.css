@@ -171,6 +171,20 @@ p {
   color: var(--color-muted);
 }
 
+.recipe-steps summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.recipe-popup .recipe-steps p {
+  margin-top: 0.35rem;
+  max-height: 12rem;
+  overflow: auto;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  color: inherit;
+}
+
 /* Buttons */
 .button {
   font: inherit;

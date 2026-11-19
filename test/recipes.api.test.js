@@ -97,6 +97,8 @@ describe("POST /recipes", () => {
     ["longitude out of range", { lat: 0, lng: 181 }],
     ["missing longitude", { lat: 10 }],
     ["not an object", "Lagos"],
+    ["a string latitude", { lat: "6.5", lng: 3.3792 }],
+    ["a string longitude", { lat: 6.5244, lng: "3.3792" }],
   ])("rejects a location with %s", async (_label, location) => {
     const res = await request(app).post("/recipes").send({ ...validRecipe(), location });
 

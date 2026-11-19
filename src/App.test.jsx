@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { MAP_LIMIT } from "../shared/limits.js";
 import App from "./App.jsx";
 
 const savedRecipes = [
@@ -10,7 +11,7 @@ const savedRecipes = [
     country: "Nigeria",
     prepTimeMinutes: 75,
     ingredients: ["rice", "tomato", "scotch bonnet"],
-    steps: "Fry the base, then simmer the rice in it.",
+    steps: "Blend the peppers.\nFry the base, then simmer the rice in it.",
     location: { lat: 6.5244, lng: 3.3792 },
   },
   {
@@ -88,6 +89,36 @@ describe("recipe map", () => {
     expect(popup).toHaveTextContent("Nigeria · 1 h 15 min");
     const tags = within(within(popup).getByRole("list", { name: "Ingredients" })).getAllByRole("listitem");
     expect(tags.map((tag) => tag.textContent)).toEqual(["rice", "tomato", "scotch bonnet"]);
+
+    const steps = within(popup).getByText(/Blend the peppers/);
+    expect(steps).not.toBeVisible();
+    const summary = within(popup).getByText("Steps");
+    fireEvent.click(summary);
+    expect(steps).toBeVisible();
+    expect(steps.textContent).toBe("Blend the peppers.\nFry the base, then simmer the rice in it.");
+  });
+
+  it("says only the newest recipes are shown when the list reaches the cap, and keeps it at the cap after a save", async () => {
+    const list = Array.from({ length: MAP_LIMIT }, (_, i) => ({
+      ...savedRecipes[0],
+      id: `r${i}`,
+      name: `Recipe ${i}`,
+    }));
+    const user = await renderLoaded({ list });
+
+    expect(screen.getByRole("status")).toHaveTextContent(`Showing only the newest ${MAP_LIMIT} recipes on the map.`);
+
+    await user.click(screen.getByRole("button", { name: "Add recipe" }));
+    await user.type(screen.getByLabelText("Recipe name"), "Pho");
+    await user.type(screen.getByLabelText("Country"), "Vietnam");
+    await user.type(screen.getByLabelText("Preparation time (minutes)"), "45");
+    await user.type(screen.getByLabelText("Ingredients"), "noodles");
+    await user.type(screen.getByLabelText("Recipe steps"), "Simmer.");
+    await user.click(screen.getByRole("button", { name: "Save recipe" }));
+
+    expect(await screen.findByRole("button", { name: "Pho (Vietnam)" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: `Recipe ${MAP_LIMIT - 1} (Nigeria)` })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Recipe 0 (Nigeria)" })).toBeInTheDocument();
   });
 
   it("shows a visible error with a retry when recipes cannot be loaded", async () => {
@@ -123,6 +154,19 @@ describe("adding a recipe", () => {
     expect(screen.queryByRole("complementary")).not.toBeInTheDocument();
     expect(screen.queryByTitle("New recipe location")).not.toBeInTheDocument();
     expect(map).toHaveFocus();
+  });
+
+  it("Add recipe returns focus to an open form without moving its pin", async () => {
+    const user = await renderLoaded();
+    const map = screen.getByRole("region", { name: "World map of recipes" });
+    fireEvent.click(map, { clientX: 300, clientY: 200 });
+    const form = await screen.findByRole("complementary", { name: "Add a recipe" });
+    const locationText = within(form).getByText("Location:").parentElement.textContent;
+
+    await user.click(screen.getByRole("button", { name: "Add recipe" }));
+
+    expect(within(form).getByText("Location:").parentElement.textContent).toBe(locationText);
+    expect(screen.getByLabelText("Recipe name")).toHaveFocus();
   });
 
   it("labels every field", async () => {

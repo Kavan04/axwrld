@@ -2,9 +2,10 @@
 // Data is kept in .mongo-data/ so recipes survive restarts. Stop it with Ctrl+C.
 import { mkdirSync } from "node:fs";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import { mongoDataDir } from "./mongoDataDir.js";
 
 const port = Number(process.env.MONGO_PORT) || 27017;
-const dbPath = new URL("../.mongo-data/", import.meta.url).pathname;
+const dbPath = mongoDataDir(import.meta.url);
 mkdirSync(dbPath, { recursive: true });
 
 const server = await MongoMemoryServer.create({

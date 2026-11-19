@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { Recipe } from "../models/recipeModel.js";
+import { MAP_LIMIT } from "../shared/limits.js";
 import { validateRecipe } from "../shared/validateRecipe.js";
 
 const router = express.Router();
@@ -9,9 +10,6 @@ const invalidFieldsResponse = (fields) => ({
   error: `Invalid fields: ${Object.keys(fields).join(", ")}.`,
   fields,
 });
-
-// Upper bound on markers sent to the map in one response.
-const MAP_LIMIT = 1000;
 
 // Express 5 forwards rejected promises from these handlers to the app's error handler.
 router.get("/", async (_req, res) => {

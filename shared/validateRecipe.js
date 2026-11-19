@@ -4,6 +4,7 @@ import {
   MAX_INGREDIENT_LENGTH,
   normalizeIngredients,
 } from "./ingredients.js";
+import { COUNTRY_MAX, NAME_MAX, PREP_MAX, PREP_MIN, STEPS_MAX } from "./limits.js";
 
 const isPlainObject = (value) =>
   value !== null && typeof value === "object" && !Array.isArray(value);
@@ -16,10 +17,7 @@ function requiredText(body, field, label, maxLength, errors) {
 }
 
 function coordinate(value, min, max) {
-  const number = typeof value === "string" && value.trim() !== "" ? Number(value) : value;
-  return typeof number === "number" && Number.isFinite(number) && number >= min && number <= max
-    ? number
-    : null;
+  return typeof value === "number" && Number.isFinite(value) && value >= min && value <= max ? value : null;
 }
 
 /**
@@ -32,16 +30,16 @@ export function validateRecipe(body) {
   }
 
   const errors = {};
-  const name = requiredText(body, "name", "Recipe name", 120, errors);
-  const country = requiredText(body, "country", "Country", 80, errors);
+  const name = requiredText(body, "name", "Recipe name", NAME_MAX, errors);
+  const country = requiredText(body, "country", "Country", COUNTRY_MAX, errors);
 
   const rawPrepTime = body.prepTimeMinutes;
   const prepTimeMinutes =
     typeof rawPrepTime === "number" || (typeof rawPrepTime === "string" && rawPrepTime.trim() !== "")
       ? Number(rawPrepTime)
       : NaN;
-  if (!Number.isInteger(prepTimeMinutes) || prepTimeMinutes < 1 || prepTimeMinutes > 10080) {
-    errors.prepTimeMinutes = "Preparation time must be a whole number of minutes between 1 and 10080.";
+  if (!Number.isInteger(prepTimeMinutes) || prepTimeMinutes < PREP_MIN || prepTimeMinutes > PREP_MAX) {
+    errors.prepTimeMinutes = `Preparation time must be a whole number of minutes between ${PREP_MIN} and ${PREP_MAX}.`;
   }
 
   let ingredients = [];
@@ -60,7 +58,7 @@ export function validateRecipe(body) {
     }
   }
 
-  const steps = requiredText(body, "steps", "Recipe steps", 10000, errors);
+  const steps = requiredText(body, "steps", "Recipe steps", STEPS_MAX, errors);
 
   let location = null;
   if (!isPlainObject(body.location)) {

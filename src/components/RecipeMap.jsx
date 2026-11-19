@@ -96,6 +96,10 @@ const RecipeMap = forwardRef(function RecipeMap({ recipes, draft, onPick, onMove
                   </li>
                 ))}
               </ul>
+              <details className="recipe-steps">
+                <summary>Steps</summary>
+                <p>{recipe.steps}</p>
+              </details>
             </article>
           </Popup>
         </Marker>
